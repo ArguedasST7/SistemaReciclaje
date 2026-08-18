@@ -33,6 +33,33 @@ namespace SistemaReciclaje.vista
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
+        /// Control lblTotalRegistros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalRegistros;
+
+        /// <summary>
+        /// Control lblTotalCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalCantidad;
+
+        /// <summary>
+        /// Control lblTotalPuntos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPuntos;
+
+        /// <summary>
         /// Control txtusuarioId.
         /// </summary>
         /// <remarks>
