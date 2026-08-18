@@ -27,15 +27,24 @@ namespace SistemaReciclaje.vista
 
         protected void bcanjear_Click(object sender, EventArgs e)
         {
-            logica.CanjearRecompensa(
-                Convert.ToInt32(txtusuarioId.Text),
-                Convert.ToInt32(txtrecompensaId.Text)
-            );
+            try
+            {
+                logica.CanjearRecompensa(
+                    Convert.ToInt32(txtusuarioId.Text),
+                    Convert.ToInt32(txtrecompensaId.Text)
+                );
 
-            txtusuarioId.Text = "";
-            txtrecompensaId.Text = "";
+                txtusuarioId.Text = "";
+                txtrecompensaId.Text = "";
 
-            LlenarGrid();
+                LlenarGrid();
+
+                Response.Write("<script>alert('Recompensa canjeada correctamente.');</script>");
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                Response.Write("<script>alert('" + ex.Message.Replace("'", "\\'") + "');</script>");
+            }
         }
     }
 }

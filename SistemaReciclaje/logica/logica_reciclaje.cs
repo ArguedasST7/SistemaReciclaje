@@ -40,5 +40,23 @@ namespace SistemaReciclaje.logica
                 }
             }
         }
+
+        public DataTable ObtenerEstadisticas()
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = DBconn.obtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("sp_Reciclaje_Estadisticas", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    adaptador.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
     }
 }

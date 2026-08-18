@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace SistemaReciclaje.vista
             if (!IsPostBack)
             {
                 LlenarGrid();
+                CargarEstadisticas();
             }
         }
 
@@ -24,6 +26,19 @@ namespace SistemaReciclaje.vista
             GridView1.DataSource = logica.ObtenerReciclajes();
             GridView1.DataBind();
         }
+
+        private void CargarEstadisticas()
+        {
+            DataTable tabla = logica.ObtenerEstadisticas();
+
+            if (tabla.Rows.Count > 0)
+            {
+                lblTotalRegistros.Text = tabla.Rows[0]["totalRegistros"].ToString();
+                lblTotalCantidad.Text = tabla.Rows[0]["totalCantidad"].ToString();
+                lblTotalPuntos.Text = tabla.Rows[0]["totalPuntos"].ToString();
+            }
+        }
+
 
         protected void bagregar_Click(object sender, EventArgs e)
         {
@@ -38,6 +53,7 @@ namespace SistemaReciclaje.vista
             txtcantidad.Text = "";
 
             LlenarGrid();
+            CargarEstadisticas();
         }
     }
 }
